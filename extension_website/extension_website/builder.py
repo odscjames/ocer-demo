@@ -44,7 +44,7 @@ class Builder:
 
         # Index page
         template = environment.get_template('index.html')
-        html = template.render(ids=self.extensions.keys(), data=self.extensions, standard_versions=self.standard_versions)
+        html = template.render()
         self.file_write_html('/', 'index.html', html)
 
         # Index page for each standard

@@ -11,10 +11,10 @@
 
 
     <ul>
-        {% for id in ids %}
+        {% for id in extension_ids %}
             <li>
-                <a href="{{ id }}.html">{{ data[id]['extension_data']['name']['en'] }}</a>
-                {% if data[id]['core'] %}<span>(core)</span>{% endif %}
+                <a href="{{ id }}.html">{{ extensions[id]['extension_data']['name']['en'] }}</a>
+                {% if extensions[id]['core'] %}<span>(core)</span>{% endif %}
             </li>
         {% endfor %}
     </ul>
