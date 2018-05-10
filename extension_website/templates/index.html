@@ -4,7 +4,7 @@
     <ul>
         {% for id in ids %}
             <li>
-                <a href="{{ id }}.html">{{ id }}</a>
+                <a href="{{ id }}.html">{{ data[id]['extension_data']['name']['en'] }}</a>
             </li>
         {% endfor %}
     </ul>
