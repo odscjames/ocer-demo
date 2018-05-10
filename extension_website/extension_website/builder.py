@@ -21,6 +21,7 @@ class Builder:
                     self.extensions[extension_id] = extension_website.models.Extension(
                         github_url=data['github_url'],
                         core=data['core'],
+                        category=data['category'],
                         version_as_standard=('version_as_standard' in data and data['version_as_standard']),
                        )
 

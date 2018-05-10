@@ -25,6 +25,7 @@ for directory in glob.glob("/open-contracting-extension-registry/*"):
             url = 'https://github.com' + url[33:]
 
             out_data = {
+                "category":entry_obj[0]['category'],
                 "core":entry_obj[0]['core'],
                 "github_url":url,
             }

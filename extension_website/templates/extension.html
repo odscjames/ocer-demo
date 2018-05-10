@@ -12,6 +12,10 @@
             <th>Core</th>
             <td>{% if data['core'] %}Yes{% else %}No{% endif %}</td>
         </tr>
+        <tr>
+            <th>Category</th>
+            <td>{{ data['category'] }}</td>
+        </tr>
     </table>
 
     {% for standard_version in standard_versions %}

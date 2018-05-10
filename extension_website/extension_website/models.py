@@ -2,13 +2,14 @@
 
 class Extension:
 
-    def __init__(self, github_url, core, version_as_standard):
+    def __init__(self, github_url, core, version_as_standard, category):
         self.github_url = github_url
         self.core = core
         self.version_as_standard = version_as_standard
         self.extension_for_standard_versions = {}
         self.extension_data = None
         self.git_tags = []
+        self.category = category
 
     def process(self, standard_versions):
         for ver in standard_versions:
