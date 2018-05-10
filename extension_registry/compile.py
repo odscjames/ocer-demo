@@ -18,7 +18,7 @@ for directory in glob.glob("/open-contracting-extension-registry/*"):
             url = entry_obj[0]['url']
             if url[-21:] != 'master/extension.json':
                 raise Exception(url[-21:])
-            url = url[:-22] + '.git'
+            url = url[:-22]
 
             if url[:33] != 'https://raw.githubusercontent.com':
                 raise Exception(url[:33])
@@ -26,7 +26,7 @@ for directory in glob.glob("/open-contracting-extension-registry/*"):
 
             out_data = {
                 "core":entry_obj[0]['core'],
-                "url":url,
+                "github_url":url,
             }
 
             with open(out_file, 'w') as outfile:

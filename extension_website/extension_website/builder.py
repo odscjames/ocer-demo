@@ -17,14 +17,14 @@ class Builder:
                 extension_id = file.split('/')[-1].split('.')[0]
                 with open(file) as fp:
                     data = json.load(fp)
-                    self.extensions[extension_id] = extension_website.models.Extension(git_url=data['url'],
+                    self.extensions[extension_id] = extension_website.models.Extension(github_url=data['github_url'],
                                                                                        core=data['core']
                                                                                        )
 
     def fetch_extensions(self):
         for id, data in self.extensions.items():
             # TODO should really make sure data.git_url is a URL to avoid a security problem
-            command = "git clone " + data.git_url + '  ' + self.data_folder + '/' + id
+            command = "git clone " + data.get_git_clone_url() + '  ' + self.data_folder + '/' + id
             subprocess.check_call(command, shell=True)
 
     def load_extension_data(self):
