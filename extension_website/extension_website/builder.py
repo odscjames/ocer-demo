@@ -17,21 +17,19 @@ class Builder:
 
 
     def make_website(self):
+        environment = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(os.path.dirname(__file__)) + '/templates/'))
+
         # Index page
-        template = jinja2.Template(self.file_get_template('index.html'))
+        template = environment.get_template('index.html')
         html = template.render(ids=self.extensions.keys())
         self.file_write_html('index.html', html)
 
         # Page for each extension
-        template = jinja2.Template(self.file_get_template('extension.html'))
+        template = environment.get_template('extension.html')
         for id, data in self.extensions.items():
             html = template.render(id=id, data=data)
             self.file_write_html(id+'.html', html)
 
-
-    def file_get_template(self, template_name):
-        with open(os.path.dirname(os.path.dirname(__file__)) + '/templates/' + template_name) as f:
-            return f.read()
 
     def file_write_html(self, file_name, html):
         with open(self.website_out_folder + '/' + file_name, "w") as f:
