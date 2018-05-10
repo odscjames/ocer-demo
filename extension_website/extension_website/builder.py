@@ -32,8 +32,13 @@ class Builder:
             with open(self.data_folder + '/' + id + '/extension.json') as fp:
                 self.extensions[id].extension_data = json.load(fp)
 
+    def process_data(self):
+        for id, data in self.extensions.items():
+            data.process(standard_versions=self.standard_versions)
+
     def make_website(self):
         environment = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(os.path.dirname(__file__)) + '/templates/'))
+        environment.globals['standard_versions'] = self.standard_versions
 
         # Index page
         template = environment.get_template('index.html')
