@@ -1,4 +1,5 @@
 import glob, os, json, jinja2, subprocess
+import extension_website.models
 
 class Builder:
     extension_registry_folder = '/vagrant/extension_registry/extensions/'
@@ -15,7 +16,10 @@ class Builder:
             if os.path.isfile(file):
                 extension_id = file.split('/')[-1].split('.')[0]
                 with open(file) as fp:
-                    self.extensions[extension_id] = json.load(fp)
+                    data = json.load(fp)
+                    self.extensions[extension_id] = extension_website.models.Extension(git_url=data['url'],
+                                                                                       core=data['core']
+                                                                                       )
 
     def fetch_extensions(self):
         for id, data in self.extensions.items():
@@ -25,7 +29,7 @@ class Builder:
     def load_extension_data(self):
         for id in self.extensions.keys():
             with open(self.data_folder + '/' + id + '/extension.json') as fp:
-                self.extensions[id]['extension_data'] = json.load(fp)
+                self.extensions[id].extension_data = json.load(fp)
 
     def make_website(self):
         environment = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(os.path.dirname(__file__)) + '/templates/'))
