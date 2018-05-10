@@ -47,6 +47,11 @@ class Builder:
         html = template.render()
         self.file_write_html('/', 'index.html', html)
 
+        # Table page
+        template = environment.get_template('table.html')
+        html = template.render()
+        self.file_write_html('/', 'table.html', html)
+
         # Index page for each standard
         template = environment.get_template('version/index.html')
         for ver in self.standard_versions:

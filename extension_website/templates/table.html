@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Core</th>
+            {% for standard_version in standard_versions %}
+                <th>Standard V{{ standard_version }}</th>
+            {% endfor %}
+        </tr>
+        {% for id in extension_ids %}
+            <tr>
+                <td><a href="{{ id }}.html">{{ id }}</a></td>
+                <td>{{ extensions[id]['extension_data']['name']['en'] }}</td>
+                <td>{% if extensions[id]['core'] %}Yes{% else %}No{% endif %}</td>
+                {% for standard_version in standard_versions %}
+                    <td> {% if extensions[id]['standard_versions'][standard_version]['available'] %}Yes{% else %}No{% endif %}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
