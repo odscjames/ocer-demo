@@ -16,6 +16,10 @@
             <th>Category</th>
             <td>{{ data['category'] }}</td>
         </tr>
+        <tr>
+            <th>Documentation</th>
+            <td><a href="{{ data.get_documentation_url() }}">{{ data.get_documentation_url() }}</a></td>
+        </tr>
     </table>
 
     {% for standard_version in standard_versions %}

@@ -32,6 +32,8 @@ class Extension:
         else:
             return self.github_url + '.git'
 
+    def get_documentation_url(self):
+        return self.extension_data['documentationUrl']['en']
 
 def does_any_version_in_list_match_version(check_list, version):
     version_bits = version.split('.')
