@@ -17,6 +17,12 @@ class Builder:
 
 
     def make_website(self):
+        # Index page
+        template = jinja2.Template(self.file_get_template('index.html'))
+        html = template.render(ids=self.extensions.keys())
+        self.file_write_html('index.html', html)
+
+        # Page for each extension
         template = jinja2.Template(self.file_get_template('extension.html'))
         for id, data in self.extensions.items():
             html = template.render(id=id, data=data)
