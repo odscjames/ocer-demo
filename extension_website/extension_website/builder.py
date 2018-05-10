@@ -1,9 +1,10 @@
-import glob, os, json, jinja2
+import glob, os, json, jinja2, subprocess
 
 class Builder:
     extension_registry_folder = '/vagrant/extension_registry/extensions/'
     extensions = {}
     website_out_folder = '/out'
+    data_folder = '/data'
 
     def __init__(self):
         pass
@@ -15,6 +16,10 @@ class Builder:
                 with open(file) as fp:
                     self.extensions[extension_id] = json.load(fp)
 
+    def fetch_extensions(self):
+        for id, data in self.extensions.items():
+            command = "git clone " + data['url'] + '  ' + self.data_folder + '/' + id
+            subprocess.check_call(command, shell=True)
 
     def make_website(self):
         environment = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(os.path.dirname(__file__)) + '/templates/'))

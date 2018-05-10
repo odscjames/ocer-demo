@@ -8,6 +8,9 @@ git clone https://github.com/open-contracting/extension_registry.git /open-contr
 pip3 install -r /vagrant/extension_website/requirements.txt
 
 
+mkdir /data
+chown -R vagrant:users /data
+
 mkdir /out
 chown -R vagrant:users /out
 
