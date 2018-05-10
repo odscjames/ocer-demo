@@ -39,6 +39,8 @@ class Builder:
     def make_website(self):
         environment = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(os.path.dirname(__file__)) + '/templates/'))
         environment.globals['standard_versions'] = self.standard_versions
+        environment.globals['extensions'] = self.extensions
+        environment.globals['extension_ids'] = self.extensions.keys()
 
         # Index page
         template = environment.get_template('index.html')
