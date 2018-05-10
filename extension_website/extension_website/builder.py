@@ -1,4 +1,4 @@
-import glob, os, json, jinja2, subprocess, shutil
+import glob, os, json, jinja2, subprocess, shutil, csv
 import extension_website.models
 
 class Builder:
@@ -59,6 +59,30 @@ class Builder:
         template = environment.get_template('table.html')
         html = template.render()
         self.file_write_html('/', 'table.html', html)
+
+        # Table CSV
+        with open(self.website_out_folder + '/data.csv', 'w') as csvfile:
+            writer = csv.writer(csvfile)
+            line = [
+                'Id',
+                'Name',
+                'Category',
+                'Core'
+            ]
+            for ver in self.standard_versions:
+                line.append('Standard V'+ver)
+            writer.writerow(line)
+            for id in self.extensions.keys():
+                line = [
+                    id,
+                    self.extensions[id].extension_data['name']['en'],
+                    self.extensions[id].category,
+                    'yes' if self.extensions[id].core else 'no',
+                ]
+                for ver in self.standard_versions:
+                    line.append('yes' if self.extensions[id].extension_for_standard_versions[ver].available else 'no')
+                writer.writerow(line)
+
 
         # Index page for each standard
         template = environment.get_template('version/index.html')
