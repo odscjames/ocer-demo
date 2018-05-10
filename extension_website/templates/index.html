@@ -14,6 +14,7 @@
         {% for id in ids %}
             <li>
                 <a href="{{ id }}.html">{{ data[id]['extension_data']['name']['en'] }}</a>
+                {% if data[id]['core'] %}<span>(core)</span>{% endif %}
             </li>
         {% endfor %}
     </ul>
