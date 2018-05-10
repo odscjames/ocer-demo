@@ -8,12 +8,16 @@ class Extension:
         self.version_as_standard = version_as_standard
         self.extension_for_standard_versions = {}
         self.extension_data = None
+        self.git_tags = []
 
     def process(self, standard_versions):
         for ver in standard_versions:
             self.extension_for_standard_versions[ver] = ExtensionForStandardVersion(extension=self)
             if self.version_as_standard:
-                self.extension_for_standard_versions[ver].git_reference = 'v' + ver
+                if 'v' + ver in self.git_tags:
+                    self.extension_for_standard_versions[ver].git_reference = 'v' + ver
+                else:
+                    self.extension_for_standard_versions[ver].available = False
 
     def get_git_clone_url(self):
         if self.github_url[-1:] == '/':

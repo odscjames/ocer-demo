@@ -31,8 +31,13 @@ class Builder:
 
     def load_extension_data(self):
         for id in self.extensions.keys():
+            # Load the master json
             with open(self.data_folder + '/' + id + '/extension.json') as fp:
                 self.extensions[id].extension_data = json.load(fp)
+            # Load list of tags
+            results = subprocess.check_output("git tag", cwd=self.data_folder + '/' + id, shell=True)
+            self.extensions[id].git_tags = results.decode("utf-8") .split('\n')
+
 
     def process_data(self):
         for id in self.extensions.keys():
