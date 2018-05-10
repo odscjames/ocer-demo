@@ -19,6 +19,12 @@ class Extension:
                     self.extension_for_standard_versions[ver].git_reference = 'v' + ver
                 else:
                     self.extension_for_standard_versions[ver].available = False
+            elif 'compatibility' in self.extension_data:
+                if does_any_version_in_list_match_version(self.extension_data['compatibility'], ver):
+                    self.extension_for_standard_versions[ver].available = True
+                else:
+                    self.extension_for_standard_versions[ver].available = False
+
 
     def get_git_clone_url(self):
         if self.github_url[-1:] == '/':
@@ -26,6 +32,14 @@ class Extension:
         else:
             return self.github_url + '.git'
 
+
+def does_any_version_in_list_match_version(check_list, version):
+    version_bits = version.split('.')
+    for check_version in check_list:
+        check_version_bits = check_version.split('.')
+        if check_version_bits[0] == version_bits[0] and check_version_bits[1] == version_bits[1]:
+            return True
+    return False
 
 class ExtensionForStandardVersion:
 

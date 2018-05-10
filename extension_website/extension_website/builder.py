@@ -7,7 +7,6 @@ class Builder:
     website_out_folder = '/out'
     data_folder = '/data'
     standard_versions = ['1.0.3', '1.1.3']
-    # TODO Is this wrong?  Extensions only in 1.1+ right? Leaving for now as demo. Maybe remove later.
 
     def __init__(self):
         pass
