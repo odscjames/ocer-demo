@@ -29,6 +29,9 @@ for directory in glob.glob("/open-contracting-extension-registry/*"):
                 "github_url":url,
             }
 
+            if out_data['core']:
+                out_data['version_as_standard'] = True
+
             with open(out_file, 'w') as outfile:
                 json.dump(out_data, outfile, indent=4)
 

@@ -6,7 +6,7 @@
 
    <ul>
       {% for id in extension_ids %}
-         {% if extensions[id]['standard_versions'][version]['available'] %}
+         {% if extensions[id]['extension_for_standard_versions'][version]['available'] %}
             <li>
                <a href="/{{ id }}.html">{{ extensions[id]['extension_data']['name']['en'] }}</a>
                {% if extensions[id]['core'] %}<span>(core)</span>{% endif %}

@@ -16,10 +16,20 @@
 
     {% for standard_version in standard_versions %}
         <h3>Standard Version {{ standard_version }}</h3>
-        {% if data['standard_versions'][standard_version]['available'] %}
+        {% if data['extension_for_standard_versions'][standard_version]['available'] %}
             <div>
                 Available
             </div>
+
+            <div>
+                Use in your data:
+            </div>
+            <div>
+                {
+                    "extensions": ["{{ data['extension_for_standard_versions'][standard_version].get_url_to_use_in_standard_extensions_list() }}"]
+                }
+            </div>
+
         {% else %}
             <div>
                 Not Available

@@ -16,7 +16,7 @@
                 <td>{{ extensions[id]['extension_data']['name']['en'] }}</td>
                 <td>{% if extensions[id]['core'] %}Yes{% else %}No{% endif %}</td>
                 {% for standard_version in standard_versions %}
-                    <td> {% if extensions[id]['standard_versions'][standard_version]['available'] %}Yes{% else %}No{% endif %}</td>
+                    <td> {% if extensions[id]['extension_for_standard_versions'][standard_version]['available'] %}Yes{% else %}No{% endif %}</td>
                 {% endfor %}
             </tr>
         {% endfor %}

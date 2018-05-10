@@ -1,4 +1,5 @@
 {
     "core": true,
-    "github_url": "https://github.com/open-contracting/ocds_participationFee_extension"
+    "github_url": "https://github.com/open-contracting/ocds_participationFee_extension",
+    "version_as_standard": true
 }

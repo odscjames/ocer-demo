@@ -17,9 +17,11 @@ class Builder:
                 extension_id = file.split('/')[-1].split('.')[0]
                 with open(file) as fp:
                     data = json.load(fp)
-                    self.extensions[extension_id] = extension_website.models.Extension(github_url=data['github_url'],
-                                                                                       core=data['core']
-                                                                                       )
+                    self.extensions[extension_id] = extension_website.models.Extension(
+                        github_url=data['github_url'],
+                        core=data['core'],
+                        version_as_standard=('version_as_standard' in data and data['version_as_standard']),
+                       )
 
     def fetch_extensions(self):
         for id, data in self.extensions.items():
@@ -33,8 +35,8 @@ class Builder:
                 self.extensions[id].extension_data = json.load(fp)
 
     def process_data(self):
-        for id, data in self.extensions.items():
-            data.process(standard_versions=self.standard_versions)
+        for id in self.extensions.keys():
+            self.extensions[id].process(standard_versions=self.standard_versions)
 
     def make_website(self):
         environment = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(os.path.dirname(__file__)) + '/templates/'))
