@@ -1,14 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <ul>
-        {% for standard_version in standard_versions %}
-            <li>
-                <a href="standard-v{{ standard_version }}/">{{ standard_version }}</a>
-            </li>
-        {% endfor %}
-    </ul>
 
+    <h2>All Extensions</h2>
 
     <ul>
         {% for id in extension_ids %}
@@ -20,5 +14,17 @@
     </ul>
 
     <div><a href="table.html">View As Table</a></div>
+
+    <h2>Browse by Standard version</h2>
+
+    <ul>
+        {% for standard_version in standard_versions %}
+            <li>
+                <a href="standard-v{{ standard_version }}/">{{ standard_version }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+
 {% endblock %}
 

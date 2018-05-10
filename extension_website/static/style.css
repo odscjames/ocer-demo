@@ -1,0 +1,41 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+#header {
+    padding: 10px;
+    background: #373738;
+}
+
+#header h1 a {
+    color: white;
+    text-decoration: none;
+}
+
+#content {
+    padding: 10px;
+}
+
+table.data {
+    margin: 20px 0;
+    padding: 0;
+}
+
+table.data tr {
+    margin: 0;
+    padding: 0;
+}
+
+table.data th {
+    border: 1px solid black;
+    margin: 0;
+    padding: 5px;
+}
+
+table.data td {
+    border: 1px solid black;
+    margin: 0;
+    padding: 5px;
+}
+

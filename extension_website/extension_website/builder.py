@@ -1,4 +1,4 @@
-import glob, os, json, jinja2, subprocess
+import glob, os, json, jinja2, subprocess, shutil
 import extension_website.models
 
 class Builder:
@@ -58,13 +58,17 @@ class Builder:
             html = template.render(version=ver)
             self.file_write_html("standard-v"+ver, 'index.html', html)
 
-
-
         # Page for each extension
         template = environment.get_template('extension.html')
         for id, data in self.extensions.items():
             html = template.render(id=id, data=data)
             self.file_write_html('/', id+'.html', html)
+
+        # static
+        for file in glob.glob(os.path.dirname(os.path.dirname(__file__)) + '/static/*'):
+            if os.path.isfile(file):
+                shutil.copy(file, self.website_out_folder + '/' + os.path.basename(file))
+
 
     def file_write_html(self, path, file_name, html):
         if not os.path.exists(self.website_out_folder + '/' + path):
