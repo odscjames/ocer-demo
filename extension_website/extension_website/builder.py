@@ -23,7 +23,8 @@ class Builder:
 
     def fetch_extensions(self):
         for id, data in self.extensions.items():
-            command = "git clone " + data['url'] + '  ' + self.data_folder + '/' + id
+            # TODO should really make sure data.git_url is a URL to avoid a security problem
+            command = "git clone " + data.git_url + '  ' + self.data_folder + '/' + id
             subprocess.check_call(command, shell=True)
 
     def load_extension_data(self):
