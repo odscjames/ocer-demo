@@ -1,6 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {{ data['extension_data']['name']['en'] }}
+    <h2>{{ data['extension_data']['name']['en'] }}</h2>
+
+    <table>
+        <tr>
+            <th>Git URL</th>
+            <td>{{ data['git_url'] }}</td>
+        </tr>
+        <tr>
+            <th>Core</th>
+            <td>{% if data['core'] %}Yes{% else %}No{% endif %}</td>
+        </tr>
+    </table>
 {% endblock %}
 
