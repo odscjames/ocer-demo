@@ -2,6 +2,15 @@
 
 {% block content %}
     <ul>
+        {% for standard_version in standard_versions %}
+            <li>
+                <a href="standard-v{{ standard_version }}/">{{ standard_version }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+
+    <ul>
         {% for id in ids %}
             <li>
                 <a href="{{ id }}.html">{{ data[id]['extension_data']['name']['en'] }}</a>

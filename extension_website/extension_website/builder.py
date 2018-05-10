@@ -5,6 +5,7 @@ class Builder:
     extensions = {}
     website_out_folder = '/out'
     data_folder = '/data'
+    standard_versions = ['1.0.3', '1.1.3']
 
     def __init__(self):
         pass
@@ -31,15 +32,25 @@ class Builder:
 
         # Index page
         template = environment.get_template('index.html')
-        html = template.render(ids=self.extensions.keys(), data=self.extensions)
-        self.file_write_html('index.html', html)
+        html = template.render(ids=self.extensions.keys(), data=self.extensions, standard_versions=self.standard_versions)
+        self.file_write_html('/', 'index.html', html)
+
+        # Index page for each standard
+        template = environment.get_template('version/index.html')
+        for ver in self.standard_versions:
+            html = template.render(version=ver)
+            self.file_write_html("standard-v"+ver, 'index.html', html)
+
+
 
         # Page for each extension
         template = environment.get_template('extension.html')
         for id, data in self.extensions.items():
             html = template.render(id=id, data=data)
-            self.file_write_html(id+'.html', html)
+            self.file_write_html('/', id+'.html', html)
 
-    def file_write_html(self, file_name, html):
-        with open(self.website_out_folder + '/' + file_name, "w") as f:
+    def file_write_html(self, path, file_name, html):
+        if not os.path.exists(self.website_out_folder + '/' + path):
+            os.makedirs(self.website_out_folder + '/' + path)
+        with open(self.website_out_folder + '/' + path + '/' + file_name, "w") as f:
             f.write(html)
