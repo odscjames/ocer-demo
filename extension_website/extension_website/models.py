@@ -35,6 +35,9 @@ class Extension:
     def get_documentation_url(self):
         return self.extension_data['documentationUrl']['en']
 
+    def get_description(self):
+        return self.extension_data['description']['en']
+
 def does_any_version_in_list_match_version(check_list, version):
     version_bits = version.split('.')
     for check_version in check_list:

@@ -5,8 +5,12 @@
 
     <table>
         <tr>
-            <th>GitHub URL</th>
-            <td><a href="{{ data['github_url'] }}">{{ data['github_url'] }}</a></td>
+            <th>Description</th>
+            <td>{{ data.get_description() }}</td>
+        </tr>
+        <tr>
+            <th>Documentation</th>
+            <td><a href="{{ data.get_documentation_url() }}">{{ data.get_documentation_url() }}</a></td>
         </tr>
         <tr>
             <th>Core</th>
@@ -17,8 +21,8 @@
             <td>{{ data['category'] }}</td>
         </tr>
         <tr>
-            <th>Documentation</th>
-            <td><a href="{{ data.get_documentation_url() }}">{{ data.get_documentation_url() }}</a></td>
+            <th>GitHub URL</th>
+            <td><a href="{{ data['github_url'] }}">{{ data['github_url'] }}</a></td>
         </tr>
     </table>
 
