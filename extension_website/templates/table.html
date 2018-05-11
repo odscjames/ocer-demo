@@ -13,7 +13,7 @@
         </tr>
         {% for id in extension_ids %}
             <tr>
-                <td><a href="{{ id }}.html">{{ id }}</a></td>
+                <td><a href="/en/{{ id }}.html">{{ id }}</a></td>
                 <td>{{ extensions[id]['extension_data']['name']['en'] }}</td>
                 <td>{{ extensions[id].category }}</td>
                 <td>{% if extensions[id]['core'] %}Yes{% else %}No{% endif %}</td>

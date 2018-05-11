@@ -7,7 +7,7 @@
     <ul>
         {% for id in extension_ids %}
             <li>
-                <a href="{{ id }}.html">{{ extensions[id]['extension_data']['name']['en'] }}</a>
+                <a href="/en/{{ id }}.html">{{ extensions[id]['extension_data']['name']['en'] }}</a>
                 {% if extensions[id]['core'] %}<span>(core)</span>{% endif %}
             </li>
         {% endfor %}
@@ -20,7 +20,7 @@
     <ul>
         {% for standard_version in standard_versions %}
             <li>
-                <a href="standard-v{{ standard_version }}/">{{ standard_version }}</a>
+                <a href="/en/standard-v{{ standard_version }}/">{{ standard_version }}</a>
             </li>
         {% endfor %}
     </ul>

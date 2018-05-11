@@ -53,15 +53,15 @@ class Builder:
         # Index page
         template = environment.get_template('index.html')
         html = template.render()
-        self.file_write_html('/', 'index.html', html)
+        self.file_write_html('/en/', 'index.html', html)
 
         # Table page
         template = environment.get_template('table.html')
         html = template.render()
-        self.file_write_html('/', 'table.html', html)
+        self.file_write_html('/en/', 'table.html', html)
 
         # Table CSV
-        with open(self.website_out_folder + '/data.csv', 'w') as csvfile:
+        with open(self.website_out_folder + '/en/data.csv', 'w') as csvfile:
             writer = csv.writer(csvfile)
             line = [
                 'Id',
@@ -88,13 +88,13 @@ class Builder:
         template = environment.get_template('version/index.html')
         for ver in self.standard_versions:
             html = template.render(version=ver)
-            self.file_write_html("standard-v"+ver, 'index.html', html)
+            self.file_write_html("/en/standard-v"+ver, 'index.html', html)
 
         # Page for each extension
         template = environment.get_template('extension.html')
         for id, data in self.extensions.items():
             html = template.render(id=id, data=data)
-            self.file_write_html('/', id+'.html', html)
+            self.file_write_html('/en/', id+'.html', html)
 
         # static
         for file in glob.glob(os.path.dirname(os.path.dirname(__file__)) + '/static/*'):
