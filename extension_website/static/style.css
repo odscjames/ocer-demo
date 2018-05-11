@@ -39,3 +39,16 @@ table.data td {
     padding: 5px;
 }
 
+ul.breadcrumbs {
+
+}
+
+ul.breadcrumbs li {
+    display: inline-block;
+    list-style-type: none;
+}
+
+ul.breadcrumbs li::before {
+    content: '>> ';
+}
+

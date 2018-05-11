@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 
+
+{% block breadcrumbs %}
+    <ul class="breadcrumbs">
+        <li><a href="/en/">Welcome</a></li>
+        <li>Standard version {{ version }}</li>
+    </ul>
+{% endblock %}
+
 {% block content %}
 
    <h2>Standard Version {{  version }}</h2>
