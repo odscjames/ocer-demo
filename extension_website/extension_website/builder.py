@@ -49,6 +49,8 @@ class Builder:
         environment.globals['standard_versions'] = self.standard_versions
         environment.globals['extensions'] = self.extensions
         environment.globals['extension_ids'] = sorted(self.extensions.keys())
+        environment.globals['core_extension_ids'] = sorted([id for id, ext in self.extensions.items() if ext.core])
+        environment.globals['community_extension_ids'] = sorted([id for id, ext in self.extensions.items() if not ext.core])
 
         # Index page
         template = environment.get_template('index.html')
@@ -87,7 +89,13 @@ class Builder:
         # Index page for each standard
         template = environment.get_template('version/index.html')
         for ver in self.standard_versions:
-            html = template.render(version=ver)
+            html = template.render(
+                version=ver,
+                version_core_extension_ids=sorted([id for id, ext in self.extensions.items()
+                                                   if ext.core and ext.extension_for_standard_versions[ver].available]),
+                version_community_extension_ids=sorted([id for id, ext in self.extensions.items()
+                                                        if not ext.core and ext.extension_for_standard_versions[ver].available])  #noqa
+            )
             self.file_write_html("/en/standard-v"+ver, 'index.html', html)
 
         # Page for each extension

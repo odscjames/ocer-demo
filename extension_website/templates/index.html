@@ -2,13 +2,22 @@
 
 {% block content %}
 
-    <h2>All Extensions</h2>
+    <h2>Core Extensions</h2>
 
     <ul>
-        {% for id in extension_ids %}
+        {% for id in core_extension_ids %}
             <li>
                 <a href="/en/{{ id }}.html">{{ extensions[id]['extension_data']['name']['en'] }}</a>
-                {% if extensions[id]['core'] %}<span>(core)</span>{% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Community Extensions</h2>
+
+    <ul>
+        {% for id in community_extension_ids %}
+            <li>
+                <a href="/en/{{ id }}.html">{{ extensions[id]['extension_data']['name']['en'] }}</a>
             </li>
         {% endfor %}
     </ul>
