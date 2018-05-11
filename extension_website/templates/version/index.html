@@ -10,6 +10,7 @@
         {% for id in version_core_extension_ids %}
             <li>
                 <a href="/en/{{ id }}.html">{{ extensions[id]['extension_data']['name']['en'] }}</a>
+                <div>{{ extensions[id].get_description() }}</div>
             </li>
         {% else %}
             <li>There are no core extensions for this version.</li>
@@ -22,6 +23,7 @@
         {% for id in version_community_extension_ids %}
             <li>
                 <a href="/en/{{ id }}.html">{{ extensions[id]['extension_data']['name']['en'] }}</a>
+                <div>{{ extensions[id].get_description() }}</div>
             </li>
         {% endfor %}
     </ul>

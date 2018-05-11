@@ -8,6 +8,7 @@
         {% for id in core_extension_ids %}
             <li>
                 <a href="/en/{{ id }}.html">{{ extensions[id]['extension_data']['name']['en'] }}</a>
+                <div>{{ extensions[id].get_description() }}</div>
             </li>
         {% endfor %}
     </ul>
@@ -18,6 +19,7 @@
         {% for id in community_extension_ids %}
             <li>
                 <a href="/en/{{ id }}.html">{{ extensions[id]['extension_data']['name']['en'] }}</a>
+                <div>{{ extensions[id].get_description() }}</div>
             </li>
         {% endfor %}
     </ul>
