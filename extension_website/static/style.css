@@ -40,15 +40,23 @@ table.data td {
 }
 
 ul.breadcrumbs {
-
+    padding: 0;
+    margin: 10px 0;
 }
 
 ul.breadcrumbs li {
     display: inline-block;
     list-style-type: none;
+    padding: 0;
+    margin: 0 5px;
+    font-style: italic;
+    font-size: 80%;
 }
 
 ul.breadcrumbs li::before {
-    content: '>> ';
+    content: '>>';
+    font-style: italic;
+    font-size: 80%;
+    padding: 0 5px 0 0;
 }
 
