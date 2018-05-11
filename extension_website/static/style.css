@@ -13,6 +13,11 @@ html, body {
     text-decoration: none;
 }
 
+#header h1 svg {
+    height: 50px;
+    width: 80px;
+}
+
 #content {
     padding: 10px;
 }
