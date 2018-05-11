@@ -11,6 +11,7 @@ html, body {
 #header h1 a {
     color: white;
     text-decoration: none;
+    font-family: stratum-1-web, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #header h1 svg {
