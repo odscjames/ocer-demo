@@ -1,4 +1,4 @@
-import glob, os, json, jinja2, subprocess, shutil, csv
+import glob, os, json, jinja2, subprocess, shutil, csv, datetime
 import extension_website.models
 
 class Builder:
@@ -55,12 +55,12 @@ class Builder:
         # Index page
         template = environment.get_template('index.html')
         html = template.render()
-        self.file_write_html('/en/', 'index.html', html)
+        self.file_write_data('/en/', 'index.html', html)
 
         # Table page
         template = environment.get_template('table.html')
         html = template.render()
-        self.file_write_html('/en/', 'table.html', html)
+        self.file_write_data('/en/', 'table.html', html)
 
         # Table CSV
         with open(self.website_out_folder + '/en/data.csv', 'w') as csvfile:
@@ -96,22 +96,52 @@ class Builder:
                 version_community_extension_ids=sorted([id for id, ext in self.extensions.items()
                                                         if not ext.core and ext.extension_for_standard_versions[ver].available])  #noqa
             )
-            self.file_write_html("/en/standard-v"+ver, 'index.html', html)
+            self.file_write_data("/en/standard-v" + ver, 'index.html', html)
 
         # Page for each extension
         template = environment.get_template('extension.html')
         for id, data in self.extensions.items():
             html = template.render(id=id, data=data)
-            self.file_write_html('/en/', id+'.html', html)
+            self.file_write_data('/en/', id + '.html', html)
 
         # static
         for file in glob.glob(os.path.dirname(os.path.dirname(__file__)) + '/static/*'):
             if os.path.isfile(file):
                 shutil.copy(file, self.website_out_folder + '/' + os.path.basename(file))
 
-
-    def file_write_html(self, path, file_name, html):
+    def file_write_data(self, path, file_name, html):
         if not os.path.exists(self.website_out_folder + '/' + path):
             os.makedirs(self.website_out_folder + '/' + path)
         with open(self.website_out_folder + '/' + path + '/' + file_name, "w") as f:
             f.write(html)
+
+    def make_legacy_compiled_data(self):
+        for ver in self.standard_versions:
+            out = {
+                "last_updated": str(datetime.datetime.utcnow()),
+                "extensions": []
+            }
+
+            for extension_id, extension in self.extensions.items():
+                if extension.extension_for_standard_versions[ver].available:
+                    out_extension = {
+                        'slug': extension_id,
+                        "category": extension.category,
+                        "documentationUrl": {
+                            "en": extension.extension_data["documentationUrl"]["en"]
+                        },
+                        "name": {
+                            "en": extension.extension_data["name"]["en"]
+                        },
+                        "core": extension.core,
+                        "url": extension.extension_for_standard_versions[ver].get_url_to_use_in_legacy_compiled_data(),
+                        "description": {
+                            "en": extension.extension_data["description"]["en"]
+                        },
+                        "documentation_url": extension.extension_data["documentationUrl"]["en"]
+                    }
+                    out['extensions'].append(out_extension)
+
+            full_json = json.dumps(out, sort_keys=True, indent=4)
+            self.file_write_data('/standard-v' + ver, 'legacy-extensions.json', full_json)
+            self.file_write_data('/standard-v' + ver, 'legacy-extensions.js', "extensions_callback(" + full_json + ")")

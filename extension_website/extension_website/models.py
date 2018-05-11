@@ -25,7 +25,6 @@ class Extension:
                 else:
                     self.extension_for_standard_versions[ver].available = False
 
-
     def get_git_clone_url(self):
         if self.github_url[-1:] == '/':
             return self.github_url[:-1] + '.git'
@@ -38,6 +37,7 @@ class Extension:
     def get_description(self):
         return self.extension_data['description']['en']
 
+
 def does_any_version_in_list_match_version(check_list, version):
     version_bits = version.split('.')
     for check_version in check_list:
@@ -45,6 +45,7 @@ def does_any_version_in_list_match_version(check_list, version):
         if check_version_bits[0] == version_bits[0] and check_version_bits[1] == version_bits[1]:
             return True
     return False
+
 
 class ExtensionForStandardVersion:
 
@@ -57,4 +58,10 @@ class ExtensionForStandardVersion:
         url_bits = self.extension.github_url.split('/')
         url = 'https://raw.githubusercontent.com/' + url_bits[3] + '/' + url_bits[4] + '/' + \
               self.git_reference + '/extension.json'
+        return url
+
+    def get_url_to_use_in_legacy_compiled_data(self):
+        url_bits = self.extension.github_url.split('/')
+        url = 'https://raw.githubusercontent.com/' + url_bits[3] + '/' + url_bits[4] + '/' + \
+              self.git_reference + '/'
         return url
