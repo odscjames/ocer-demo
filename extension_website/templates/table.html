@@ -11,20 +11,42 @@
 {% block content %}
     <table class="data">
         <tr>
+            <th colspan="{{ 3 + standard_versions|length }}"><h2>Core Extensions</h2></th>
+        </tr>
+        <tr>
             <th>Id</th>
             <th>Name</th>
             <th>Category</th>
-            <th>Core</th>
             {% for standard_version in standard_versions %}
                 <th>Standard V{{ standard_version }}</th>
             {% endfor %}
         </tr>
-        {% for id in extension_ids %}
+        {% for id in core_extension_ids %}
             <tr>
                 <td><a href="/en/{{ id }}.html">{{ id }}</a></td>
                 <td>{{ extensions[id]['extension_data']['name']['en'] }}</td>
                 <td>{{ extensions[id].category }}</td>
-                <td>{% if extensions[id]['core'] %}Yes{% else %}No{% endif %}</td>
+                {% for standard_version in standard_versions %}
+                    <td> {% if extensions[id]['extension_for_standard_versions'][standard_version]['available'] %}Yes{% else %}No{% endif %}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        <tr>
+            <th colspan="{{ 3 + standard_versions|length }}"><h2>Community Extensions</h2></th>
+        </tr>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Category</th>
+            {% for standard_version in standard_versions %}
+                <th>Standard V{{ standard_version }}</th>
+            {% endfor %}
+        </tr>
+        {% for id in community_extension_ids %}
+            <tr>
+                <td><a href="/en/{{ id }}.html">{{ id }}</a></td>
+                <td>{{ extensions[id]['extension_data']['name']['en'] }}</td>
+                <td>{{ extensions[id].category }}</td>
                 {% for standard_version in standard_versions %}
                     <td> {% if extensions[id]['extension_for_standard_versions'][standard_version]['available'] %}Yes{% else %}No{% endif %}</td>
                 {% endfor %}
