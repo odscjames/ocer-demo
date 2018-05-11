@@ -1,0 +1,34 @@
+{
+  "id": "https://raw.githubusercontent.com/open-contracting/extension_registry/master/entry-schema.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Schema for an entry in the Open Contracting Extension Registry",
+  "description": "Schema for an entry.json file pointing to the location of the extension.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "github_url",
+    "category"
+  ],
+  "properties": {
+    "github_url": {
+      "title": "GitHub URL",
+      "description": "The URL the extension is hosted at. eg: https://github.com/open-contracting/ocds_bid_extension",
+      "type": "string"
+    },
+    "category": {
+      "title": "Category",
+      "description": "Part of the docs the extensions appears in.",
+      "type": "string"
+    },
+    "core": {
+      "title": "Core extension",
+      "description": "Whether the extension is a core extension documented in the main docs.",
+      "type": "boolean"
+    },
+    "version_as_standard": {
+      "title": "Version As Standard",
+      "description": "Whether the extension has versions that are locked to the versions of the standard (normally only core extensions).",
+      "type": "boolean"
+    }
+  }
+}

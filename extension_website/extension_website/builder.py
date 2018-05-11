@@ -19,7 +19,7 @@ class Builder:
                     data = json.load(fp)
                     self.extensions[extension_id] = extension_website.models.Extension(
                         github_url=data['github_url'],
-                        core=data['core'],
+                        core=('core' in data and data['core']),
                         category=data['category'],
                         version_as_standard=('version_as_standard' in data and data['version_as_standard']),
                        )

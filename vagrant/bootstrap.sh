@@ -6,6 +6,7 @@ apt-get install -y python3 python3-pip apache2
 git clone https://github.com/open-contracting/extension_registry.git /open-contracting-extension-registry
 
 pip3 install -r /vagrant/extension_website/requirements.txt
+pip3 install -r /vagrant/extension_registry/requirements.txt
 
 
 mkdir /data
