@@ -56,10 +56,10 @@ def _fetch_extensions():
     for extension_id, data in _extensions.items():
         folder = os.path.join(extensions_repositories_folder,  extension_id)
         if os.path.isdir(folder):
-            pass
-            # TODO git fetch
+            command = "git pull origin master"
+            subprocess.check_call(command, shell=True, cwd=folder)
         else:
-            # TODO should really make sure data.git_url is a URL to avoid a security problem
+            # we are trusting the model to validate git clone url is a real url and not a security problem!
             command = "git clone " + data.get_git_clone_url() + '  ' + folder
             subprocess.check_call(command, shell=True)
 
