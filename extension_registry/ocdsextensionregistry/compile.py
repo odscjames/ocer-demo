@@ -79,6 +79,7 @@ def _process_data():
 
 
 def _make_output():
+    # Full CSV
     with open(os.path.join(output_folder, 'full_data.csv'), 'w') as csvfile:
         writer = csv.writer(csvfile)
         line = [
@@ -90,13 +91,32 @@ def _make_output():
         for ver in standard_versions:
             line.append('Standard V' + ver)
         writer.writerow(line)
-        for id in _extensions.keys():
+        for extension_id in _extensions.keys():
             line = [
                 id,
-                _extensions[id].extension_data['name']['en'],
-                _extensions[id].category,
-                'yes' if _extensions[id].core else 'no',
+                _extensions[extension_id].extension_data['name']['en'],
+                _extensions[extension_id].category,
+                'yes' if _extensions[extension_id].core else 'no',
             ]
             for ver in standard_versions:
-                line.append('yes' if _extensions[id].extension_for_standard_versions[ver].available else 'no')
+                line.append('yes' if _extensions[extension_id].extension_for_standard_versions[ver].available else 'no')
             writer.writerow(line)
+
+    # Full JSON
+    data = {'extensions':{}}
+    for extension_id in _extensions.keys():
+        data['extensions'][extension_id] = {
+            'name': _extensions[extension_id].extension_data['name']['en'],
+            'category': _extensions[extension_id].category,
+            'core': _extensions[extension_id].core,
+            'standard_versions': {}
+        }
+        for ver in standard_versions:
+            data['extensions'][extension_id]['standard_versions'][ver] = {
+                'available': _extensions[extension_id].extension_for_standard_versions[ver].available,
+                'git_reference': _extensions[extension_id].extension_for_standard_versions[ver].git_reference,
+            }
+
+    with open(os.path.join(output_folder, 'full_data.json'), 'w') as jsonfile:
+        json.dump(data, jsonfile, sort_keys=True, indent=4)
+
