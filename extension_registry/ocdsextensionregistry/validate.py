@@ -2,10 +2,14 @@ import csv
 from .models import ExtensionModel
 from .util import string_to_boolean
 
+# Options that are set by external callers
+registry_csv_filename = None
 
-def validate_csv(filename):
+
+# Methods that external callers can use
+def validate_registry_csv():
     extensions = {}
-    with open(filename, 'r') as csvfile:
+    with open(registry_csv_filename, 'r') as csvfile:
         reader = csv.reader(csvfile)
         reader.__next__() # Throw away the heading line
         for row in reader:
