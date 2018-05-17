@@ -12,6 +12,7 @@
             "name": {
                 "en": "Additional Contact Points"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_additionalContactPoints_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": false
@@ -40,6 +41,7 @@
             "name": {
                 "en": "Bid statistics and details"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_bid_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": false
@@ -68,6 +70,7 @@
             "name": {
                 "en": "Budget Breakdown"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_budget_breakdown_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": true,
@@ -98,6 +101,7 @@
             "name": {
                 "en": "Budget and Project Updates"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_budget_projects_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": false
@@ -126,6 +130,7 @@
             "name": {
                 "en": "Multiple buyers - contract level"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_multiple_buyers_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": false
@@ -154,6 +159,7 @@
             "name": {
                 "en": "Charges"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_charges_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": false
@@ -182,6 +188,7 @@
             "name": {
                 "en": "Contract suppliers"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_contract_suppliers_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": false
@@ -210,6 +217,7 @@
             "name": {
                 "en": "Document Details"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_documentation_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": true,
@@ -240,6 +248,7 @@
             "name": {
                 "en": "Enquiries"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_enquiry_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": false
@@ -268,6 +277,7 @@
             "name": {
                 "en": "Contract extensions as contracts: extendsContractID"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_extendsContractID_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": false
@@ -296,6 +306,7 @@
             "name": {
                 "en": "Financing"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_finance_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": true,
@@ -326,6 +337,7 @@
             "name": {
                 "en": "Location"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_location_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": false
@@ -354,6 +366,7 @@
             "name": {
                 "en": "Lots"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_lots_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": false
@@ -382,6 +395,7 @@
             "name": {
                 "en": "Metrics"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_metrics_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": true,
@@ -412,6 +426,7 @@
             "name": {
                 "en": "Milestone documents"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_milestone_documents_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": false
@@ -440,6 +455,7 @@
             "name": {
                 "en": "Participation Fees"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_participationFee_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": false
@@ -468,6 +484,7 @@
             "name": {
                 "en": "Party Scale"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_partyDetails_scale_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": false
@@ -496,6 +513,7 @@
             "name": {
                 "en": "Performance Failures Extension"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_performance_failures",
             "standard_versions": {
                 "1.0.3": {
                     "available": true,
@@ -526,6 +544,7 @@
             "name": {
                 "en": "OCDS for PPPs (Alpha)"
             },
+            "repository_url": "https://github.com/open-contracting/public-private-partnerships",
             "standard_versions": {
                 "1.0.3": {
                     "available": true,
@@ -556,6 +575,7 @@
             "name": {
                 "en": "Process level title and description"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_process_title_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": false
@@ -584,6 +604,7 @@
             "name": {
                 "en": "ocds_qualification_extension"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_qualification_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": true,
@@ -614,6 +635,7 @@
             "name": {
                 "en": "Requirements"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_requirements_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": true,
@@ -644,6 +666,7 @@
             "name": {
                 "en": "ocds-riskAllocation-extension"
             },
+            "repository_url": "https://github.com/open-contracting/ocds-riskAllocation-extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": true,
@@ -674,6 +697,7 @@
             "name": {
                 "en": "ocds-shareholders-extension"
             },
+            "repository_url": "https://github.com/open-contracting/ocds-shareholders-extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": true,
@@ -704,6 +728,7 @@
             "name": {
                 "en": "ocds_contract_signatories"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_contract_signatories_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": true,
@@ -734,6 +759,7 @@
             "name": {
                 "en": "ocds_tariffs_extension"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_tariffs_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": true,
@@ -764,6 +790,7 @@
             "name": {
                 "en": "ocds_transactions_relatedMilestone_extension"
             },
+            "repository_url": "https://github.com/open-contracting/ocds_transactions_relatedMilestone_extension",
             "standard_versions": {
                 "1.0.3": {
                     "available": true,

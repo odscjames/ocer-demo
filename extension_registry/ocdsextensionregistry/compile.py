@@ -151,6 +151,7 @@ def _make_output_full_json():
     data = {'extensions':{}}
     for extension_id, extension in _extensions.items():
         data['extensions'][extension_id] = {
+            'repository_url': extension.repository_url,
             'name': {
                 'en': extension.extension_data['name']['en']
             },
