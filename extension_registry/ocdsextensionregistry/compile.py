@@ -89,12 +89,13 @@ def _make_output():
             'Id',
             'Name',
             'Description',
-            'Documentation URL'
+            'Documentation URL',
             'Category',
             'Core'
         ]
         for ver in standard_versions:
             line.append('Standard V' + ver)
+            line.append('Standard V' + ver + ' Git Ref')
         writer.writerow(line)
         for extension_id, extension in _extensions.items():
             line = [
@@ -107,6 +108,7 @@ def _make_output():
             ]
             for ver in standard_versions:
                 line.append('yes' if _extensions[extension_id].extension_for_standard_versions[ver].available else 'no')
+                line.append(_extensions[extension_id].extension_for_standard_versions[ver].git_reference)
             writer.writerow(line)
 
     # Full JSON
