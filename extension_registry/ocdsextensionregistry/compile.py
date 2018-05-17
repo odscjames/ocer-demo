@@ -7,6 +7,7 @@ import json
 
 registry_csv_filename = None
 extensions_repositories_folder = None
+standard_versions = ['1.0.3', '1.1.1', '1.1.3']
 
 _extensions = {}
 
@@ -19,6 +20,7 @@ def compile_registry():
     _load_data()
     _fetch_extensions()
     _load_extension_data()
+    _process_data()
 
 
 def _load_data():
@@ -65,3 +67,8 @@ def _load_extension_data():
             shell=True
         )
         _extensions[extension_id].git_tags = results.decode("utf-8") .split('\n')
+
+
+def _process_data():
+    for extension_id in _extensions.keys():
+        _extensions[extension_id].process(standard_versions=standard_versions)
