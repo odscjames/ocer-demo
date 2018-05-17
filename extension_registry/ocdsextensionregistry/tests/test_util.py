@@ -1,4 +1,4 @@
-from .util import string_to_boolean
+from ocdsextensionregistry.util import string_to_boolean
 
 
 def test_string_to_boolean_1():

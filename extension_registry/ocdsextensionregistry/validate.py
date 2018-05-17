@@ -2,11 +2,9 @@ import csv
 from .models import ExtensionModel
 from .util import string_to_boolean
 
-# Options that are set by external callers
 registry_csv_filename = None
 
 
-# Methods that external callers can use
 def validate_registry_csv():
     extensions = {}
     with open(registry_csv_filename, 'r') as csvfile:
