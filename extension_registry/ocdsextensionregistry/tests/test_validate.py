@@ -13,3 +13,10 @@ def test_only_github():
     with pytest.raises(Exception) as excinfo:
         ocdsextensionregistry.validate.validate_registry_csv()
     assert 'Repository must be on GitHub' in str(excinfo.value)
+
+
+def test_dupe_id():
+    ocdsextensionregistry.validate.registry_csv_filename = os.path.dirname(__file__) + '/validate_dupe_id.csv'
+    with pytest.raises(Exception) as excinfo:
+        ocdsextensionregistry.validate.validate_registry_csv()
+    assert 'Extension signatories is already registered! (Duplicate is on line 3)' in str(excinfo.value)
