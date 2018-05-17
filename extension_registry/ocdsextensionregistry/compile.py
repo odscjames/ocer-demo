@@ -89,18 +89,20 @@ def _make_output():
             'Id',
             'Name',
             'Description',
+            'Documentation URL'
             'Category',
             'Core'
         ]
         for ver in standard_versions:
             line.append('Standard V' + ver)
         writer.writerow(line)
-        for extension_id in _extensions.keys():
+        for extension_id, extension in _extensions.items():
             line = [
                 extension_id,
-                _extensions[extension_id].extension_data['name']['en'],
-                _extensions[extension_id].extension_data['description']['en'],
-                _extensions[extension_id].category,
+                extension.extension_data['name']['en'],
+                extension.extension_data['description']['en'],
+                extension.extension_data['documentationUrl']['en'],
+                extension.category,
                 'yes' if _extensions[extension_id].core else 'no',
             ]
             for ver in standard_versions:
@@ -109,22 +111,25 @@ def _make_output():
 
     # Full JSON
     data = {'extensions':{}}
-    for extension_id in _extensions.keys():
+    for extension_id, extension in _extensions.items():
         data['extensions'][extension_id] = {
             'name': {
-                'en': _extensions[extension_id].extension_data['name']['en']
+                'en': extension.extension_data['name']['en']
+            },
+            "documentation_url": {
+                "en": extension.extension_data["documentationUrl"]["en"]
             },
             'description': {
-                'en': _extensions[extension_id].extension_data['description']['en']
+                'en': extension.extension_data['description']['en']
             },
-            'category': _extensions[extension_id].category,
-            'core': _extensions[extension_id].core,
+            'category': extension.category,
+            'core': extension.core,
             'standard_versions': {}
         }
         for ver in standard_versions:
             data['extensions'][extension_id]['standard_versions'][ver] = {
-                'available': _extensions[extension_id].extension_for_standard_versions[ver].available,
-                'git_reference': _extensions[extension_id].extension_for_standard_versions[ver].git_reference,
+                'available': extension.extension_for_standard_versions[ver].available,
+                'git_reference': extension.extension_for_standard_versions[ver].git_reference,
             }
 
     with open(os.path.join(output_folder, 'full_data.json'), 'w') as jsonfile:
