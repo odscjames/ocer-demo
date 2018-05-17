@@ -88,6 +88,7 @@ def _make_output_full_csv():
         writer = csv.writer(csvfile)
         line = [
             'Id',
+            'Repository URL',
             'Name',
             'Description',
             'Documentation URL',
@@ -101,6 +102,7 @@ def _make_output_full_csv():
         for extension_id, extension in _extensions.items():
             line = [
                 extension_id,
+                extension.repository_url,
                 extension.extension_data['name']['en'],
                 extension.extension_data['description']['en'],
                 extension.extension_data['documentationUrl']['en'],
@@ -119,6 +121,7 @@ def _make_output_version_csv():
             writer = csv.writer(csvfile)
             line = [
                 'Id',
+                'Repository URL',
                 'Name',
                 'Description',
                 'Documentation URL',
@@ -132,6 +135,7 @@ def _make_output_version_csv():
                 if _extensions[extension_id].extension_for_standard_versions[ver].available:
                     line = [
                         extension_id,
+                        extension.repository_url,
                         extension.extension_data['name']['en'],
                         extension.extension_data['description']['en'],
                         extension.extension_data['documentationUrl']['en'],
