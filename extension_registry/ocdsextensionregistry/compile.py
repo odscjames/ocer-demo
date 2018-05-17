@@ -3,6 +3,7 @@ from .models import ExtensionModel
 from .util import string_to_boolean
 import os
 import subprocess
+import json
 
 registry_csv_filename = None
 extensions_repositories_folder = None
@@ -17,6 +18,7 @@ def compile_registry():
         raise Exception("Please set extensions_repositories_folder")
     _load_data()
     _fetch_extensions()
+    _load_extension_data()
 
 
 def _load_data():
@@ -50,3 +52,16 @@ def _fetch_extensions():
             command = "git clone " + data.get_git_clone_url() + '  ' + folder
             subprocess.check_call(command, shell=True)
 
+
+def _load_extension_data():
+    for extension_id in _extensions.keys():
+        # Load the master json
+        with open(os.path.join(extensions_repositories_folder,  extension_id, 'extension.json')) as fp:
+            _extensions[extension_id].extension_data = json.load(fp)
+        # Load list of tags
+        results = subprocess.check_output(
+            "git tag",
+            cwd=os.path.join(extensions_repositories_folder, extension_id),
+            shell=True
+        )
+        _extensions[extension_id].git_tags = results.decode("utf-8") .split('\n')

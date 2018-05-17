@@ -6,6 +6,8 @@ class ExtensionModel:
         self.repository_url = repository_url
         self.core = core
         self.category = category
+        self.extension_data = None
+        self.git_tags = []
 
     def validate_extension_registry_data_only(self):
         if self.repository_url[:19] != 'https://github.com/':
