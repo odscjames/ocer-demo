@@ -1,4 +1,4 @@
-Id,GitHubURL,Category,Core
+Id,RepositoryURL,Category,Core
 signatories,https://github.com/open-contracting/ocds_contract_signatories_extension,contract,False
 documentation,https://github.com/open-contracting/ocds_documentation_extension,ppp,False
 transactions_relatedMilestones,https://github.com/open-contracting/ocds_transactions_relatedMilestone_extension,ppp,False
