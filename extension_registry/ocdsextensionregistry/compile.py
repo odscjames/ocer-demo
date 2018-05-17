@@ -25,7 +25,8 @@ def compile_registry():
     _load_extension_data()
     _process_data()
     if output_folder is not None:
-        _make_output()
+        _make_output_full_csv()
+        _make_output_full_json()
     if legacy_output_folder is not None:
         _make_legacy_output()
 
@@ -81,8 +82,7 @@ def _process_data():
         _extensions[extension_id].process(standard_versions=standard_versions)
 
 
-def _make_output():
-    # Full CSV
+def _make_output_full_csv():
     with open(os.path.join(output_folder, 'full_data.en.csv'), 'w') as csvfile:
         writer = csv.writer(csvfile)
         line = [
@@ -111,7 +111,8 @@ def _make_output():
                 line.append(_extensions[extension_id].extension_for_standard_versions[ver].git_reference)
             writer.writerow(line)
 
-    # Full JSON
+
+def _make_output_full_json():
     data = {'extensions':{}}
     for extension_id, extension in _extensions.items():
         data['extensions'][extension_id] = {
