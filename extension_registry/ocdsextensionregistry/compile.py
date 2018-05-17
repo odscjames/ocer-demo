@@ -83,11 +83,12 @@ def _process_data():
 
 def _make_output():
     # Full CSV
-    with open(os.path.join(output_folder, 'full_data.csv'), 'w') as csvfile:
+    with open(os.path.join(output_folder, 'full_data.en.csv'), 'w') as csvfile:
         writer = csv.writer(csvfile)
         line = [
             'Id',
             'Name',
+            'Description',
             'Category',
             'Core'
         ]
@@ -96,8 +97,9 @@ def _make_output():
         writer.writerow(line)
         for extension_id in _extensions.keys():
             line = [
-                id,
+                extension_id,
                 _extensions[extension_id].extension_data['name']['en'],
+                _extensions[extension_id].extension_data['description']['en'],
                 _extensions[extension_id].category,
                 'yes' if _extensions[extension_id].core else 'no',
             ]
@@ -109,7 +111,12 @@ def _make_output():
     data = {'extensions':{}}
     for extension_id in _extensions.keys():
         data['extensions'][extension_id] = {
-            'name': _extensions[extension_id].extension_data['name']['en'],
+            'name': {
+                'en': _extensions[extension_id].extension_data['name']['en']
+            },
+            'description': {
+                'en': _extensions[extension_id].extension_data['description']['en']
+            },
             'category': _extensions[extension_id].category,
             'core': _extensions[extension_id].core,
             'standard_versions': {}
