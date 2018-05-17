@@ -27,6 +27,7 @@ def compile_registry():
     if output_folder is not None:
         _make_output_full_csv()
         _make_output_full_json()
+        _make_output_version_csv()
     if legacy_output_folder is not None:
         _make_legacy_output()
 
@@ -110,6 +111,36 @@ def _make_output_full_csv():
                 line.append('yes' if _extensions[extension_id].extension_for_standard_versions[ver].available else 'no')
                 line.append(_extensions[extension_id].extension_for_standard_versions[ver].git_reference)
             writer.writerow(line)
+
+
+def _make_output_version_csv():
+    for ver in standard_versions:
+        with open(os.path.join(output_folder, 'data.v' + ver + '.en.csv'), 'w') as csvfile:
+            writer = csv.writer(csvfile)
+            line = [
+                'Id',
+                'Name',
+                'Description',
+                'Documentation URL',
+                'Category',
+                'Core',
+                'Git ref',
+                'extension.json URL'
+            ]
+            writer.writerow(line)
+            for extension_id, extension in _extensions.items():
+                if _extensions[extension_id].extension_for_standard_versions[ver].available:
+                    line = [
+                        extension_id,
+                        extension.extension_data['name']['en'],
+                        extension.extension_data['description']['en'],
+                        extension.extension_data['documentationUrl']['en'],
+                        extension.category,
+                        'yes' if _extensions[extension_id].core else 'no',
+                        _extensions[extension_id].extension_for_standard_versions[ver].git_reference,
+                        _extensions[extension_id].extension_for_standard_versions[ver].get_url_to_use_in_standard_extensions_list()
+                    ]
+                    writer.writerow(line)
 
 
 def _make_output_full_json():
