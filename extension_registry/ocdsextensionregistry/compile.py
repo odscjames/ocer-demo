@@ -127,10 +127,16 @@ def _make_output():
             'standard_versions': {}
         }
         for ver in standard_versions:
-            data['extensions'][extension_id]['standard_versions'][ver] = {
-                'available': extension.extension_for_standard_versions[ver].available,
-                'git_reference': extension.extension_for_standard_versions[ver].git_reference,
-            }
+            if extension.extension_for_standard_versions[ver].available:
+                data['extensions'][extension_id]['standard_versions'][ver] = {
+                    'available': True,
+                    'git_reference': extension.extension_for_standard_versions[ver].git_reference,
+                    'extension_json_url': extension.extension_for_standard_versions[ver].get_url_to_use_in_standard_extensions_list()
+                }
+            else:
+                data['extensions'][extension_id]['standard_versions'][ver] = {
+                    'available': False
+                }
 
     with open(os.path.join(output_folder, 'full_data.json'), 'w') as jsonfile:
         json.dump(data, jsonfile, sort_keys=True, indent=4)

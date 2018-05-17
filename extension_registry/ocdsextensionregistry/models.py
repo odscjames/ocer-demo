@@ -56,3 +56,9 @@ class ExtensionForStandardVersion:
         url = 'https://raw.githubusercontent.com/' + url_bits[3] + '/' + url_bits[4] + '/' + \
               self.git_reference + '/'
         return url
+
+    def get_url_to_use_in_standard_extensions_list(self):
+        url_bits = self.extension.repository_url.split('/')
+        url = 'https://raw.githubusercontent.com/' + url_bits[3] + '/' + url_bits[4] + '/' + \
+              self.git_reference + '/extension.json'
+        return url
