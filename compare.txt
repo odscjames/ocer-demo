@@ -1,0 +1,199 @@
+Id: signatories
+
+Name Different!
+Registry: Signatories
+Extension: ocds_contract_signatories
+
+Description Different!
+Registry: Adds an array of organizationReferences to the contract section OCDS to support explicit declaration of the signatories for a contract.
+Extension: Adds an array of OrganizationReference's to the contract section OCDS to support explicit declaration of the signatories for a contract.
+
+Please make https://github.com/open-contracting/ocds_contract_signatories_extension/blob/master/extension.json have the correct value
+
+Id: documentation
+
+Name Different!
+Registry: Documentation
+Extension: Document Details
+
+Description Different!
+Registry: Extending the documents block with page numbers, access details and authorship information
+Extension: This extension captures additional details about documentation, as identified in consultation for the OCDS PPP extension. 
+
+Please make https://github.com/open-contracting/ocds_documentation_extension/blob/master/extension.json have the correct value
+
+Id: transactions_relatedMilestones
+
+Name Different!
+Registry: Transactions - Related Milestones
+Extension: ocds_transactions_relatedMilestone_extension
+
+Please make https://github.com/open-contracting/ocds_transactions_relatedMilestone_extension/blob/master/extension.json have the correct value
+
+Id: extendsContractID
+
+Name Different!
+Registry: Contract extensions via supplementary contract: extendsContractID
+Extension: Contract extensions as contracts: extendsContractID
+
+Please make https://github.com/open-contracting/ocds_extendsContractID_extension/blob/master/extension.json have the correct value
+
+Id: requirements
+
+Description Different!
+Registry: The requirements extension is based on the EU's Core Criterion and Core Evidence Vocabulary (CCCEV) model for communicating criteria and responses. The extension is designed to allow procuring entities or buyers to express criteria, relating to either items being procured or bidders themselves, as structured data.
+Extension: https://github.com/open-contracting/standard/issues/223
+
+Please make https://github.com/open-contracting/ocds_requirements_extension/blob/master/extension.json have the correct value
+
+
+Id: tariffs
+
+Name Different!
+Registry: Tariffs
+Extension: ocds_tariffs_extension
+
+Description Different!
+Registry: Capturing details of tariffs, tolls and user fees associated with a contract.
+Extension: The tariffs extension introduces support for disclosure of structured data on the user fees associated with a public private partnership project.
+
+Please make https://github.com/open-contracting/ocds_tariffs_extension/blob/master/extension.json have the correct value
+
+
+Id: performance_failures
+
+Description Different!
+Registry: This extension introduces a performance failures array to the implementation section of OCDS, based on the performance failures reporting table defined in the framework for disclosure in PPPs.
+Extension: Adds fields to the implementation section to allow disclosure of an array of contracting performance failures. Based on the performance failures reporting table defined in the World Bank Framework for Disclosure in PPPs.
+
+Please make https://github.com/open-contracting/ocds_performance_failures/blob/master/extension.json have the correct value
+
+Id: additionalContactPoint
+
+Description Different!
+Registry: For including extra contact points on each organization. Particularly useful when each contact point deals only in a particular language or group of languages.
+Extension: For including extra contact points on each organization. Particularly used when each contact point deals only in a particular language or group of languages.
+
+Please make https://github.com/open-contracting/ocds_additionalContactPoints_extension/blob/master/extension.json have the correct value
+
+
+Id: location
+
+Description Different!
+Registry: Allow the point of delivery for a given item or the site of works to be completed to be indicated in both the tender, award and contract stage.
+Extension: Communicates the location of proposed or executed contract delivery.
+
+Please make https://github.com/open-contracting/ocds_location_extension/blob/master/extension.json have the correct value
+
+Id: risk_allocation
+
+Name Different!
+Registry: Risk Allocation
+Extension: ocds-riskAllocation-extension
+
+Please make https://github.com/open-contracting/ocds-riskAllocation-extension/blob/master/extension.json have the correct value
+
+Id: qualification
+
+Name Different!
+Registry: Qualification
+Extension: ocds_qualification_extension
+
+Description Different!
+Registry: For providing information on a pre-qualification stage.
+Extension: Draft extension for PPPs to add a qualification section between planning and tender. Currently this is another tender object. See discussion in https://github.com/open-contracting/public-private-partnerships/issues/36
+
+Please make https://github.com/open-contracting/ocds_qualification_extension/blob/master/extension.json have the correct value
+
+Id: partyScale
+
+Description Different!
+Registry: For classifying organisations as micro, sme or large.
+Extension: For classifying organizations as micro, sme or large.
+
+Please make https://github.com/open-contracting/ocds_partyDetails_scale_extension/blob/master/extension.json have the correct value
+
+Id: charges
+
+Description Different!
+Registry: The charges extension is used to record details of the total charges that are estimated or applied to users or government during the operation of a Public Private Partnership contract. 
+Extension: The charges extension is used to record details of the **total** charges that are estimated or applied to users or government during the operation of a Public Private Partnership contract.
+
+Please make https://github.com/open-contracting/ocds_charges_extension/blob/master/extension.json have the correct value
+
+Id: shareholders
+
+Name Different!
+Registry: Shareholders
+Extension: ocds-shareholders-extension
+
+Description Different!
+Registry: Draft shareholders extension for ppp extension
+Extension: The shareholders extension can be used to attach company ownership details to each party in the parties array.
+
+Please make https://github.com/open-contracting/ocds-shareholders-extension/blob/master/extension.json have the correct value
+
+Id: budgets_and_projects
+
+Name Different!
+Registry: Budget and projects
+Extension: Budget and Project Updates
+
+Description Different!
+Registry: This extension separates planning information on budgets and projects, in line with a proposal for OCDS upgrades, and to support the PPP extension.
+Extension: This extension introduces a projects block in 'planning' which can be used to give total project value, and provide project-level information, alongside existing fields in the planning/budget section for details of the budget allocated to this specific contracting process.
+
+Please make https://github.com/open-contracting/ocds_budget_projects_extension/blob/master/extension.json have the correct value
+
+Id: metrics
+
+Description Different!
+Registry: The metrics extension supports publication of forecasts (planning stage), targets (tender stage), agreed performance targets (award and contract stage) and results (implementation stage)..
+Extension: The metrics extension supports publication of forecasts (planning stage), targets (tender stage), agreed performance targets (award and contract stage) and results (implementation stage).
+
+Please make https://github.com/open-contracting/ocds_metrics_extension/blob/master/extension.json have the correct value
+
+Id: ppp
+
+Name Different!
+Registry: PPP Extension
+Extension: OCDS for PPPs (Alpha)
+
+Description Different!
+Registry: This extension collects together a number of schema additions required by the OCDS for PPPs implementation profile. Some of these may later be factored out into their own extesions.
+Extension: This extension collects together a number of schema additions required by the OCDS for PPPs implementation profile. Some of these may later be factored out into their own extensions.
+
+documentationUrl Different!
+Registry: http://ocds-for-ppps.readthedocs.io/
+Extension: http://standard.open-contracting.org/profiles/ppp/latest/en/
+
+Please make https://github.com/open-contracting/public-private-partnerships/blob/master/extension.json have the correct value
+
+Id: buyer_per_contract
+
+Description Different!
+Registry: In some cases, a single contracting process involves multiple buyers (for example, a framework that different organisations can buy from). In these cases, the multiple buyers extension can be used to specify a distinct buyer for each contract.
+Extension: In some cases, a single contracting process involves multiple buyers (for example, a framework that different organizations can buy from). In these cases, the multiple buyers extension can be used to specify a distinct buyer for each contract. 
+
+Please make https://github.com/open-contracting/ocds_multiple_buyers_extension/blob/master/extension.json have the correct value
+
+Id: finance
+
+Name Different!
+Registry: Finance
+Extension: Financing
+
+Please make https://github.com/open-contracting/ocds_finance_extension/blob/master/extension.json have the correct value
+
+Id: budget_breakdown
+
+Name Different!
+Registry: Budget breakdown
+Extension: Budget Breakdown
+
+Description Different!
+Registry: For providing a detailed budget breakdown.
+Extension: Providing a breakdown of budgets by year and source
+
+Please make https://github.com/open-contracting/ocds_budget_breakdown_extension/blob/master/extension.json have the correct value
+
